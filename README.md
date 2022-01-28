@@ -1,13 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My first app, using rails guide.
+This app, is a tutorial for me and powerful tool to learn CRUD in rails.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+* Ruby version: 7.0.1
+* System dependencies: Ubuntu 20.04
 
 * Configuration
 
@@ -20,5 +17,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
