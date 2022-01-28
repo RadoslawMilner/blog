@@ -2,5 +2,25 @@
 
 <p><%= @article.body %></p>
 
-<%= link_to "Edit that Article", edit_article_path %><br>
-<%= link_to "Back to articles", :articles %>
+<ul>
+  <li><%= link_to "Edit this article", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy this article", article_path(@article),
+    data:
+    { turbo_method: :delete,
+      turbo_confirm: "Are You sure?" } %></li>
+    <% #resources w routach definiuje Ci podstawowe routy:
+    # Rails, a resourceful route provides a mapping between HTTP verbs and URLs
+    # and controller actions. By convention, each action also maps to particular CRUD operations
+    # in a database. A single entry in the routing file, such as:
+    # resources :photos
+    # creates seven different routes in your application, all mapping to the Photos controller:
+    # GET       /photos
+    # GET       /photos/new
+    # POST      /photos
+    # GET       /photos/:id
+    # GET       /photos/:id/edit
+    # PATCH/PUT /photos/:id
+    # DELETE    /photos/:id
+    %>
+  <li><%= link_to "Back to articles", articles_path(@articles) %></li>
+</ul>
