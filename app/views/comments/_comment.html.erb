@@ -1,8 +1,10 @@
-<p>
-  Commenter:
-  <%= comment.commenter %>
-</p>
-<p>
-  Comment:
-  <%= comment.body %>
-</p>
+<% unless comment.archived? %>
+  <p>
+    Commenter:
+    <%= comment.commenter %>
+  </p>
+  <p>
+    Comment:
+    <%= comment.body %>
+  </p>
+<% end %>

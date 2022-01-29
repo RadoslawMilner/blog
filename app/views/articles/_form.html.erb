@@ -16,9 +16,13 @@
   </div>
 
   <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
+  
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
 
 <br><%= link_to "Back to articles", articles_path(@articles) %>
-<% # test 2%>
