@@ -8,19 +8,30 @@
     data:
     { turbo_method: :delete,
       turbo_confirm: "Are You sure?" } %></li>
-    <% #resources w routach definiuje Ci podstawowe routy:
-    # Rails, a resourceful route provides a mapping between HTTP verbs and URLs
-    # and controller actions. By convention, each action also maps to particular CRUD operations
-    # in a database. A single entry in the routing file, such as:
-    # resources :photos
-    # creates seven different routes in your application, all mapping to the Photos controller:
-    # GET       /photos
-    # GET       /photos/new
-    # POST      /photos
-    # GET       /photos/:id
-    # GET       /photos/:id/edit
-    # PATCH/PUT /photos/:id
-    # DELETE    /photos/:id
-    %>
+    <%  #resources w routach definiuje Ci podstawowe routy:
+        # Rails, a resourceful route provides a mapping between HTTP verbs and URLs
+        # and controller actions. By convention, each action also maps to particular CRUD operations
+        # in a database. A single entry in the routing file, such as:
+        # resources :photos
+        # creates seven different routes in your application, all mapping to the Photos controller:
+        # GET       /photos
+        # GET       /photos/new
+        # POST      /photos
+        # GET       /photos/:id
+        # GET       /photos/:id/edit
+        # PATCH/PUT /photos/:id
+        # DELETE    /photos/:id
+      %>
   <li><%= link_to "Back to articles", articles_path(@articles) %></li>
 </ul>
+
+<h1>Comments</h1>
+<% render @article.comments %>
+
+<h1>Add a comment:</h1>
+<%= render 'comments/form' %>
+<%  # Rails is smart enough to spot the forward slash in that string and realize that
+    # you want to render the _form.html.erb file in the app/views/comments directory.
+    # więc w zasadzie mógłbyś napisać w edit.html lub new.html render 'article/form'
+    # tylko po co? skoro article jest wyżej w hierarchi od komentarzy
+  %>

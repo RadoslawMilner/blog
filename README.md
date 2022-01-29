@@ -1,5 +1,5 @@
-# README
-
+App - Articles - guide, ror, rubyonrails - start
+https://guides.rubyonrails.org/getting_started
 My first app, using rails guide.
 This app, is a tutorial for me and powerful tool to learn CRUD in rails.
 
