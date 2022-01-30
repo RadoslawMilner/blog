@@ -4,7 +4,7 @@
 
 <ul>
   <li><%= link_to "Edit this article", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy this article", article_path(@article),
+  <li><%= link_to "Delete this article", article_path(@article),
     data:
     { turbo_method: :delete,
       turbo_confirm: "Are You sure?" } %></li>
@@ -25,7 +25,9 @@
   <li><%= link_to "Back to articles", articles_path(@articles) %></li>
 </ul>
 
-<h1>Comments</h1>
+There is <%= Comment.public_count %> comments
+
+<h1>Comments:</h1>
 <%= render @article.comments %>
 
 <h1>Add a comment:</h1>
