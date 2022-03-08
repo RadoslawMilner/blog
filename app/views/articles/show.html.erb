@@ -1,39 +1,90 @@
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32">
+
+<%= @article.picture %>
 <h1><%= @article.title %></h1>
-
+<p><%= @article.title_description %></p>
 <p><%= @article.body %></p>
+<p><%= @article.submits_time %></p>
 
-<ul>
-  <li><%= link_to "Edit this article", edit_article_path(@article) %></li>
-  <li><%= link_to "Delete this article", article_path(@article),
-    data:
-    { turbo_method: :delete,
-      turbo_confirm: "Are You sure?" } %></li>
-    <%  #resources w routach definiuje Ci podstawowe routy:
-        # Rails, a resourceful route provides a mapping between HTTP verbs and URLs
-        # and controller actions. By convention, each action also maps to particular CRUD operations
-        # in a database. A single entry in the routing file, such as:
-        # resources :photos
-        # creates seven different routes in your application, all mapping to the Photos controller:
-        # GET       /photos
-        # GET       /photos/new
-        # POST      /photos
-        # GET       /photos/:id
-        # GET       /photos/:id/edit
-        # PATCH/PUT /photos/:id
-        # DELETE    /photos/:id
-      %>
-  <li><%= link_to "Back to articles", articles_path(@articles) %></li>
-</ul>
+</header>
+<!-- END Header -->
 
-There is <%= Comment.public_count %> comments
+<!-- Grid -->
+<div class="w3-row">
 
-<h1>Comments:</h1>
+  <!-- Edit & Delete articles -->
+  <div class="w3-col l8 s12">
+
+    <div class="w3-card-4 w3-margin w3-white">
+      <div class="w3-container">
+                
+          <br>
+          <p><button class="w3-button w3-padding-large w3-white w3-border">
+                            <%= link_to "EDIT THIS ARTICLE", edit_article_path(@article) %></button></p>
+          <p><button class="w3-button w3-padding-large w3-white w3-border">
+                            <%= link_to "DELETE THIS ARTICLE", article_path(@article),
+                                data:
+                                { turbo_method: :delete,
+                                  turbo_confirm: "Are You sure?" } %></li>
+                                <%  #resources w routach definiuje Ci podstawowe routy:
+                                    # Rails, a resourceful route provides a mapping between HTTP verbs and URLs
+                                    # and controller actions. By convention, each action also maps to particular CRUD operations
+                                    # in a database. A single entry in the routing file, such as:
+                                    # resources :photos
+                                    # creates seven different routes in your application, all mapping to the Photos controller:
+                                    # GET       /photos
+                                    # GET       /photos/new
+                                    # POST      /photos
+                                    # GET       /photos/:id
+                                    # GET       /photos/:id/edit
+                                    # PATCH/PUT /photos/:id
+                                    # DELETE    /photos/:id
+                                  %></button></p>
+          <p><button class="w3-button w3-padding-large w3-white w3-border">
+                              <%= link_to "BACK TO ARTICLES", articles_path(@articles) %></button></p>
+      </div>
+    </div>
+  </div>
+  <!-- END Edit & Delete articles -->
+
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>This article has <%= Comment.public_count %> comments:</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <img src="/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Lorem</span><br>
+        <span>Sed mattis nunc</span>
+      </li>
+      <li class="w3-padding-16">
+        <img src="/w3images/gondol.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Ipsum</span><br>
+        <span>Praes tinci sed</span>
+      </li> 
+      <li class="w3-padding-16">
+        <img src="/w3images/skies.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Dorum</span><br>
+        <span>Ultricies congue</span>
+      </li>   
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <img src="/w3images/rock.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Mingsum</span><br>
+        <span>Lorem ipsum dipsum</span>
+      </li>  
+    </ul>
+  <!-- END Posts -->
+  </div>
+
 <%= render @article.comments %>
 
-<h1>Add a comment:</h1>
 <%= render 'comments/form' %>
-<%  # Rails is smart enough to spot the forward slash in that string and realize that
+<!--  # Rails is smart enough to spot the forward slash in that string and realize that
     # you want to render the _form.html.erb file in the app/views/comments directory.
     # więc w zasadzie mógłbyś napisać w edit.html lub new.html render 'article/form'
-    # tylko po co? skoro article jest wyżej w hierarchi od komentarzy
-  %>
+    # tylko po co? skoro article jest wyżej w hierarchi od komentarzy -->
+
+<!-- END GRID -->
+</div><br>

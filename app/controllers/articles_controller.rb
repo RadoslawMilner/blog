@@ -17,6 +17,13 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
 
+    def upload
+      uploaded_file = params[:picture]
+      File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+
     if @article.save
       redirect_to @article
     else
@@ -47,6 +54,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body, :status)
+      params.require(:article).permit(:title, :title_description, :body, :picture, :submits_time, :status)
     end
 end
