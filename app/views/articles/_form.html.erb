@@ -38,16 +38,13 @@
             <% end %>
           </div>  
 
-          <!-- uplouad file przetestować z forma - picture:string (looool) - string ponieważ:
-          ponieważ jest tam trzymana ścieżka lokalna (lub do serwera) z plikiem -->
-
-          <!-- t.datetime :submits_time, default: Time.current, null: false -->
-
           <!-- lol - gem shrine lub może carrierwave -->
 
-          <div>
-            <%= form.file_field :picture %>
-          </div>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><%= form.file_field :picture %></button></p>
+            </div>
+          </div>   
           
           <div>
             <%= article.submits_time %>
@@ -55,7 +52,7 @@
             
           <div class="w3-row">
             <div class="w3-col m8 s12">
-              <p><button class="w3-button w3-padding-large w3-white w3-border"><%= form.submit %></button></p>
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><%= form.submit 'CREATE ARTICLE' %></button></p>
             </div>
           </div>
         <% end %>

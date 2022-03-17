@@ -14,15 +14,16 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def upload
+    uploaded_file = params[:picture]
+    File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+      file.write(uploaded_file.read)
+    end
+    # https://guides.rubyonrails.org/form_helpers.html#uploading-files
+  end
+
   def create
     @article = Article.new(article_params)
-
-    def upload
-      uploaded_file = params[:picture]
-      File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-        file.write(uploaded_file.read)
-      end
-    end
 
     if @article.save
       redirect_to @article

@@ -9,16 +9,21 @@
 
   <!-- Grid -->
   <div class="w3-row">
+    <main>
 
     <!-- Blog entries -->
     <div class="w3-col l8 s12">
+    <section>
 
       <div class="w3-card-4 w3-margin w3-white">
         <div class="w3-container">
+        <article>
 
           <% @articles.each do |article| %>
             <% unless article.archived? %>
-              <%= image_url("#{article.picture}", width: "100%") %>
+
+              <%= article.picture.attach(params[:picture]) %>
+
               <h3><b><%= article.title %></b></h3>
               <h5><%= article.title_description %></h5>
               <h5><%= article.submits_time %></h5>                                  
@@ -28,7 +33,6 @@
               <p><button class="w3-button w3-padding-large w3-white w3-border"><%= link_to "READ MORE »", article %></button></p><hr>
             </div>
           </div>
-
             <% end %>
           <% end %>
 
@@ -41,9 +45,12 @@
           </div>
         </div>
       </div>
+      </article>
     <!-- END BLOG ENTRIES -->
     </div>
+    </section>
 
+    <section>
     <!-- Introduction menu -->
     <div class="w3-col l4">
 
@@ -63,35 +70,29 @@
         <div class="w3-container w3-padding">
           <h4>Popular Posts</h4>
         </div>
+
         <ul class="w3-ul w3-hoverable w3-white">
-          <li class="w3-padding-16">
-            <img src="/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">Lorem</span><br>
-            <span>Sed mattis nunc</span>
-          </li>
-          <li class="w3-padding-16">
-            <img src="/w3images/gondol.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">Ipsum</span><br>
-            <span>Praes tinci sed</span>
-          </li> 
-          <li class="w3-padding-16">
-            <img src="/w3images/skies.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">Dorum</span><br>
-            <span>Ultricies congue</span>
-          </li>   
-          <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-            <img src="/w3images/rock.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">Mingsum</span><br>
-            <span>Lorem ipsum dipsum</span>
-          </li>  
+          <% @articles.each do |article| %>
+            <% unless article.archived? %>
+
+              <li class="w3-padding-16">
+                <div class="w3-left w3-margin-right">
+                  <%= article.picture.attach(params[:picture]) %>
+                </div>
+                <span class="w3-large"><%= article.title %></span><br>
+                <span><%= article.title_description %></span>
+              </li>
+            <% end %>
+          <% end %>
         </ul>
       <!-- END Posts -->
       </div>
-
+    </section>
     <hr>
 
     <!-- END Introduction Menu -->
     </div>
+    </main>
 
   <!-- END GRID -->
   </div><br>
