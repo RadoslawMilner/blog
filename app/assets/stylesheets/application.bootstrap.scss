@@ -1,2 +1,17 @@
 // inside app/assets/stylesheets/application.bootstrap.scss
 @import 'bootstrap/scss/bootstrap';
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+body,h1,h2,h3,h4,h5 {
+  font-family: "Raleway", sans-serif
+}
+
+.radek-hover-black-white li:hover {
+  color:#ccc!important;
+  background-color:#000!important
+}

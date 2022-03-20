@@ -14,6 +14,14 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def upload
+    uploaded_file = params[:picture]
+    File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+      file.write(uploaded_file.read)
+    end
+    # https://guides.rubyonrails.org/form_helpers.html#uploading-files
+  end
+
   def create
     @article = Article.new(article_params)
 
@@ -47,6 +55,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body, :status)
+      params.require(:article).permit(:title, :title_description, :body, :picture, :submits_time, :status)
     end
 end

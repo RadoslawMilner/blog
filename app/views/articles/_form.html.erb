@@ -1,30 +1,70 @@
-<%= form_with model: article do |form| %>
+<!-- Grid -->
+<div class="w3-row">
 
-  <div>
-    <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
-  </div>
-  
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+  <!-- Form -->
+  <div class="w3-col l8 s12">
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-    <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="w3-card-4 w3-margin w3-white">
+      <div class="w3-container">
 
-<br><%= link_to "Back to articles", articles_path(@articles) %>
-<% # test nowy branch %>
+        <%= form_with model: article do |form| %>
+          
+          <div>
+            <%= form.label :status %><br>
+            <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+          </div>
+            
+          <div>
+            <%= form.text_field :title, :placeholder => "Title" %>
+            <% article.errors.full_messages_for(:title).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+            </div>
+          
+          <div>
+            <%= form.text_field :title_description, :placeholder => "Short title description" %>
+            <% article.errors.full_messages_for(:title_description).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+          
+          <div>
+            <%= form.text_area :body, cols: 90, :placeholder => "Write here your content of post" %>
+            <% article.errors.full_messages_for(:body).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>  
+
+          <!-- lol - gem shrine lub może carrierwave -->
+
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><%= form.file_field :picture %></button></p>
+            </div>
+          </div>   
+          
+          <div>
+            <%= article.submits_time %>
+          </div>
+            
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><%= form.submit 'CREATE ARTICLE' %></button></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+<hr>
+    <div class="w3-margin">
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border">
+                            <%= link_to "BACK TO ARTICLES", articles_path(@articles) %></button></p>
+        </div>
+      </div>
+    </div>
+  <!-- END Form -->
+  </div>
+<!-- END GRID -->
+</div><br>
