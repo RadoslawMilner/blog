@@ -1,8 +1,16 @@
-Blog
-App - Articles - guide, ror, rubyonrails - start
-https://guides.rubyonrails.org/getting_started
-My first app, using rails guide.
-This app, is a tutorial for me and powerful tool to learn CRUD in rails.
+Welcome to my Blog, about my hobby Wh40k.
 
-* Ruby version: 7.0.1
+This is my first project. I created by using knowledge of guide.rails.
+https://guides.rubyonrails.org/getting_started
+
+Project's purpose is to learn basic CRUD operations.
+
+* Ruby version: 3.0.1
+
+* Rails version: 7.0.0
+
 * System dependencies: Ubuntu 20.04
+
+* Database creation 15.01.2022
+
+* Databse initialization 15.01.2022
